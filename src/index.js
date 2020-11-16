@@ -31,7 +31,14 @@ class Slider {
         </div>
       </div>
     `;
+    this.el.style.background = this.options.inactiveColor;
     this.el.innerHTML = html;
+    this.el.querySelector('.v-slider__button').style.width = this.options.buttonSize;
+    this.el.querySelector('.v-slider__button').style.height = this.options.buttonSize;
+    if (this.options.barHeight) {
+      this.el.style.height = this.options.barHeight;
+      this.el.querySelector('.v-slider-bar').style.height = this.options.barHeight;
+    }
   }
   updateValue = (value, end) => {
     value = this.format(value);

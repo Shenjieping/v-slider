@@ -147,7 +147,15 @@
 
     _defineProperty(this, "initHtml", function () {
       var html = "\n      <div class=\"v-slider-bar\">\n        <div class=\"v-slider__button-wrapper\">\n          <div class=\"v-slider__button\"></div>\n        </div>\n      </div>\n    ";
+      _this.el.style.background = _this.options.inactiveColor;
       _this.el.innerHTML = html;
+      _this.el.querySelector('.v-slider__button').style.width = _this.options.buttonSize;
+      _this.el.querySelector('.v-slider__button').style.height = _this.options.buttonSize;
+
+      if (_this.options.barHeight) {
+        _this.el.style.height = _this.options.barHeight;
+        _this.el.querySelector('.v-slider-bar').style.height = _this.options.barHeight;
+      }
     });
 
     _defineProperty(this, "updateValue", function (value, end) {

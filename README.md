@@ -53,6 +53,10 @@ new Slider({
 | min | 最小值 | Number | 0 |
 | step | 步长 | Number | 1 |
 | el | slider容器 | DOMHTML  | 此值必填 |
+| activeColor | 进度条激活态颜色 | string  | #1989fa |
+| inactiveColor | 进度非激活态颜色 | string  | #e5e5e5 |
+| buttonSize | 滑块按钮大小 | string  | 24px |
+| barHeight | 进度条高度 | string  | 2px |
 | input | 进度变化时实时触发 | function(val) | -- |
 | change | 进度变化且结束拖动后触发 | function(val) | -- |
 | dragStart | 开始拖动时触发 | function() | -- |
