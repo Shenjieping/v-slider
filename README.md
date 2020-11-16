@@ -42,7 +42,7 @@ new Slider({
 
 ## 兼容性
 
-默认只兼容移动端，如果要在PC端使用请引用 `plugin/js/touch.js`
+默认只兼容移动端，如果要在PC端使用请引用 `public/js/touch.js`
 
 ## API
 
