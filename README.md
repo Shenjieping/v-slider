@@ -25,11 +25,15 @@ new Slider({
   min: -50, // 最小值 默认0
   step: 0.1, // 步长 默认1
   el: '.slider-1', // 初始化el 必填
+  activeColor: '#f66', // 进度条激活态颜色
+  inactiveColor: '#aaa', // 进度条非激活态颜色
+  buttonSize: '12px', // 滑块按钮大小
+  barHeight: '4px', // 进度条高度
   input: function(val) { // 值改变时触发
-    // console.log('....val::', val);
+    console.log('input val::', val);
   },
   change: function(val) { // 值改变之后触发
-    console.log(',,,', val);
+    console.log('change val::', val);
   },
   dragStart: function() { // 开始拖动
     console.log('...dragStart...');
@@ -61,3 +65,7 @@ new Slider({
 | change | 进度变化且结束拖动后触发 | function(val) | -- |
 | dragStart | 开始拖动时触发 | function() | -- |
 | dragEnd | 结束拖动时触发 | function() | -- |
+
+## DEMO 演示
+
+[slider Demo](http://shenjp.top/v-slider/public/index.html)
