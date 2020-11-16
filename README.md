@@ -1,6 +1,6 @@
 # 原生 Slider
 
-## 使用方发
+## 使用方法
 
 ```html
 <link rel="stylesheet" href="./css/slider.css">
