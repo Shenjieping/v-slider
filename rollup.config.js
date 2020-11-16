@@ -1,15 +1,15 @@
 // 支持ES6语法
 import babel from 'rollup-plugin-babel';
 import serve from 'rollup-plugin-serve';
-import uglify from 'rollup-plugin-uglify';
+import { uglify } from 'rollup-plugin-uglify';
 
 export default {
   input: './src/index.js', // 以哪个文件作为打包的入口
   output: {
-    file: 'dist/slider.js', // 出口路径
+    file: `dist/${process.env.ENV === 'production' ? 'slider.min' : 'slider'}.js`, // 出口路径
     name: 'Slider', // 指定打包后全局变量的名字
     format: 'umd', // 统一模块规范
-    sourcemap: true // es6 -> es5 开启源码调试模式，可以找到源码报错的位置
+    sourcemap: process.env.ENV === 'development' // es6 -> es5 开启源码调试模式，可以找到源码报错的位置
   },
   plugins: [
     babel({
@@ -22,6 +22,6 @@ export default {
       port: 3000,
       contentBase: ''
     }),
-    process.env.NODE_ENV === 'production' && uglify()
+    process.env.ENV === 'production' && uglify()
   ]
 }
