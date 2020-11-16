@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 body {
   padding: 0 20px;
@@ -17,6 +18,10 @@ body {
   border-radius: 999px;
   cursor: pointer;
   margin: 30px 0;
+  user-select: none;
+}
+.v-slider *:focus {
+  outline: none;
 }
 .v-slider:before {
   position: absolute;
@@ -32,7 +37,7 @@ body {
   height: 100%;
   background-color: #1989fa;
   border-radius: inherit;
-  transition: none 0s ease 0s;
+  transition: all 0.2s;
 }
 .v-slider__button-wrapper {
   position: absolute;

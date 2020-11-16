@@ -180,6 +180,19 @@
       return Math.round(Math.max(_this.min, Math.min(value, _this.max)) / _this.step) * _this.step;
     });
 
+    _defineProperty(this, "onClick", function (event) {
+      event.stopPropagation();
+
+      var rect = _this.el.getBoundingClientRect();
+
+      var delta = event.clientX - rect.left;
+      var total = rect.width;
+      var value = +_this.min + delta / total * _this.scope;
+      _this.startValue = _this.value;
+
+      _this.updateValue(value, true);
+    });
+
     _defineProperty(this, "onTouchStart", function (event) {
       _this.touchMixin.touchStart(event);
 
@@ -199,6 +212,7 @@
         }
       }
 
+      _this.el.querySelector('.v-slider-bar').style.transition = 'none 0s ease 0s';
       preventDefault(event, true);
 
       _this.touchMixin.touchMove(event);
@@ -230,6 +244,7 @@
         }
       }
 
+      _this.el.querySelector('.v-slider-bar').style.transition = null;
       _this.dragStatus = '';
     });
 
@@ -292,6 +307,7 @@
 
     this.bindTouchEvent(_el);
     this.touchMixin = new TouchMixin();
+    this.el.addEventListener('click', this.onClick);
   };
 
   return Slider;

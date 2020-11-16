@@ -21,6 +21,7 @@ class Slider {
     const el = this.el.querySelector('.v-slider__button-wrapper');
     this.bindTouchEvent(el);
     this.touchMixin = new TouchMixin();
+    this.el.addEventListener('click', this.onClick);
   }
   initHtml = () => {
     const html = `
@@ -58,6 +59,15 @@ class Slider {
       Math.round(Math.max(this.min, Math.min(value, this.max)) / this.step) * this.step
     );
   }
+  onClick = (event) => {
+    event.stopPropagation();
+    const rect = this.el.getBoundingClientRect();
+    const delta = event.clientX - rect.left;
+    const total = rect.width;
+    let value = +this.min + (delta / total) * this.scope;
+    this.startValue = this.value;
+    this.updateValue(value, true);
+  }
   onTouchStart = (event) => {
     this.touchMixin.touchStart(event);
     this.currentValue = this.value;
@@ -73,6 +83,7 @@ class Slider {
         console.warn('dragStart is not a function');
       }
     }
+    this.el.querySelector('.v-slider-bar').style.transition = 'none 0s ease 0s';
     preventDefault(event, true);
     this.touchMixin.touchMove(event);
     this.dragStatus = 'draging';
@@ -97,6 +108,7 @@ class Slider {
         }
       }
     }
+    this.el.querySelector('.v-slider-bar').style.transition = null;
     this.dragStatus = '';
   }
   bindTouchEvent = (el) => {
