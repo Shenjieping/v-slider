@@ -6,7 +6,9 @@
   "scripts": {
     "build:dev": "rollup -c",
     "serve": "cross-env ENV=development rollup -c -w",
-    "build": "cross-env ENV=production rollup -c"
+    "build": "cross-env ENV=production rollup -c",
+    "build:es": "cross-env ENV=production TYPE=es rollup -c",
+    "build:cjs": "cross-env ENV=production TYPE=cjs rollup -c"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,9 @@
     "cross-env": "^7.0.2",
     "rollup": "^2.26.2",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-serve": "^1.0.3",
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
