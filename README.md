@@ -68,7 +68,8 @@ new Slider({
 
 ## DEMO 演示
 
-[slider Demo](http://shenjp.top/v-slider/public/index.html)
+- [slider Demo](http://shenjp.top/v-slider/public/index.html)
+- [audio-player](http://shenjp.top/v-audio-player/public/index.html)
 
 ## 开发
 
