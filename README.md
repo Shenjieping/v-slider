@@ -79,7 +79,7 @@ npm install
 
 npm run serve
 
-npm run build       # 默认打包成amd规范
+npm run build       # 默认打包成umd规范
 npm run build:es    # 打包成es6规范
 npm run build:cjs   # 打包成commonjs规范
 ```
