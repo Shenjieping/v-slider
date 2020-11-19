@@ -69,3 +69,17 @@ new Slider({
 ## DEMO 演示
 
 [slider Demo](http://shenjp.top/v-slider/public/index.html)
+
+## 开发
+
+```bash
+git clone https://github.com/Shenjieping/v-slider.git
+
+npm install
+
+npm run serve
+
+npm run build       # 默认打包成amd规范
+npm run build:es    # 打包成es6规范
+npm run build:cjs   # 打包成commonjs规范
+```
