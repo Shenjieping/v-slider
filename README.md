@@ -4,7 +4,9 @@
 
 ```html
 <link rel="stylesheet" href="./css/slider.css">
-<script src="/dist/slider.js"></script>
+<script src="/dist/slider.min.js"></script>
+<!-- 或 import Slider from '/dist/slider.es.js' -->
+<!-- 或 const Slider = require(/dist/slider.cjs.js) -->
 ```
 
 ```html
