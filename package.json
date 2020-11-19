@@ -1,8 +1,8 @@
 {
-  "name": "v-slider",
+  "name": "vslider",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "js slider plugin",
+  "main": "dist/slider.es.js",
   "scripts": {
     "build:dev": "rollup -c",
     "serve": "cross-env ENV=development rollup -c -w",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/Shenjieping/v-slider.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "shenjieping",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Shenjieping/v-slider/issues"
