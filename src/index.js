@@ -66,6 +66,11 @@ class Slider {
     this.value = value;
     this.render();
   }
+  setValue = (value) => {
+    if (this.dragStatus === '') {
+      this.updateValue(value);
+    }
+  }
   format = (value) => {
     return (
       Math.round(Math.max(this.min, Math.min(value, this.max)) / this.step) * this.step

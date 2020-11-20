@@ -188,6 +188,12 @@
       _this.render();
     });
 
+    _defineProperty(this, "setValue", function (value) {
+      if (_this.dragStatus === '') {
+        _this.updateValue(value);
+      }
+    });
+
     _defineProperty(this, "format", function (value) {
       return Math.round(Math.max(_this.min, Math.min(value, _this.max)) / _this.step) * _this.step;
     });
