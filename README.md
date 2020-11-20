@@ -75,7 +75,7 @@ new Slider({
 
 ```js
 const slider = new Slider({
-  el: 'slider-1'
+  el: '.slider-1'
 });
 
 slider.setValue(10);
