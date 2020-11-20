@@ -69,6 +69,19 @@ new Slider({
 | dragStart | 开始拖动时触发 | function() | -- |
 | dragEnd | 结束拖动时触发 | function() | -- |
 
+-------
+
+**如何动态更新 Slider 值**
+
+```js
+const slider = new Slider({
+  el: 'slider-1'
+});
+
+slider.setValue(10);
+```
+
+
 ## DEMO 演示
 
 - [slider Demo](http://shenjp.top/v-slider/public/index.html)
