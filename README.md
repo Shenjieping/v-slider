@@ -54,7 +54,7 @@ new Slider({
 
 | 参数 | 说明 | 类型 |  默认值  |
 |:-----|:---|:----| :----- |
-| value | 初始值 | Number | 0 |
+| value | 当前进度百分比 | Number | 0 |
 | max | 最大值 | Number | 100 |
 | min | 最小值 | Number | 0 |
 | step | 步长 | Number | 1 |
@@ -63,6 +63,7 @@ new Slider({
 | inactiveColor | 进度非激活态颜色 | string  | #e5e5e5 |
 | buttonSize | 滑块按钮大小 | string  | 24px |
 | barHeight | 进度条高度 | string  | 2px |
+| disabled | 是否禁用滑块 | boolean  | false |
 | input | 进度变化时实时触发 | function(val) | -- |
 | change | 进度变化且结束拖动后触发 | function(val) | -- |
 | dragStart | 开始拖动时触发 | function() | -- |

@@ -156,6 +156,10 @@
         _this.el.style.height = _this.options.barHeight;
         _this.el.querySelector('.v-slider-bar').style.height = _this.options.barHeight;
       }
+
+      if (_this.disabled) {
+        _this.el.classList.add('v-slider-disabled');
+      }
     });
 
     _defineProperty(this, "updateValue", function (value, end) {
@@ -189,6 +193,10 @@
     });
 
     _defineProperty(this, "onClick", function (event) {
+      if (_this.disabled) {
+        return;
+      }
+
       event.stopPropagation();
 
       var rect = _this.el.getBoundingClientRect();
@@ -202,6 +210,10 @@
     });
 
     _defineProperty(this, "onTouchStart", function (event) {
+      if (_this.disabled) {
+        return;
+      }
+
       _this.touchMixin.touchStart(event);
 
       _this.currentValue = _this.value;
@@ -210,6 +222,10 @@
     });
 
     _defineProperty(this, "onTouchMove", function (event) {
+      if (_this.disabled) {
+        return;
+      }
+
       var dragStart = _this.options.dragStart;
 
       if (_this.dragStatus === 'start' && dragStart) {
@@ -238,6 +254,10 @@
     });
 
     _defineProperty(this, "onTouchEnd", function () {
+      if (_this.disabled) {
+        return;
+      }
+
       if (_this.dragStatus === 'draging') {
         _this.updateValue(_this.currentValue, true);
 
@@ -299,12 +319,14 @@
       min: 0,
       max: 100,
       step: 1,
-      value: 0
+      value: 0,
+      disabled: false
     }, options);
     this.min = this.options.min;
     this.max = this.options.max;
     this.step = this.options.step;
     this.value = this.options.value;
+    this.disabled = this.options.disabled;
     this.el = getDom(this.options.el);
     this.dragStatus = '';
     this.scope = this.max - this.min;

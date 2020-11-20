@@ -11,6 +11,8 @@
   <div class="v-slider slider-0"></div>
   <p>第二个slider， 包含所有的API</p>
   <div class="v-slider slider-1"></div>
+  <p>第三个slider， 禁用slider</p>
+  <div class="v-slider slider-2"></div>
   <script src="./js/touch.js"></script>
   <script src="./../dist/slider.min.js"></script>
   <script>
@@ -27,6 +29,7 @@
       inactiveColor: '#aaa', // 进度条非激活态颜色
       buttonSize: '12px', // 滑块按钮大小
       barHeight: '4px', // 进度条高度
+      disabled: false, // 是否禁用slider 默认false
       input: function(val) { // 值改变时触发
         // console.log('....val::', val);
       },
@@ -40,6 +43,11 @@
         console.log('...dragEnd...');
       }
     });
+    new Slider({
+      el: document.querySelector('.slider-2'),
+      value: 10,
+      disabled: true
+    })
   </script>
   <script>
   </script>

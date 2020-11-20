@@ -7,12 +7,14 @@ class Slider {
       max: 100,
       step: 1,
       value: 0,
+      disabled: false,
       ...options
     };
     this.min = this.options.min;
     this.max = this.options.max;
     this.step = this.options.step;
     this.value = this.options.value;
+    this.disabled = this.options.disabled;
     this.el = getDom(this.options.el);
     this.dragStatus = '';
     this.scope = this.max - this.min;
@@ -38,6 +40,9 @@ class Slider {
     if (this.options.barHeight) {
       this.el.style.height = this.options.barHeight;
       this.el.querySelector('.v-slider-bar').style.height = this.options.barHeight;
+    }
+    if (this.disabled) {
+      this.el.classList.add('v-slider-disabled');
     }
   }
   updateValue = (value, end) => {
@@ -67,6 +72,9 @@ class Slider {
     );
   }
   onClick = (event) => {
+    if (this.disabled) {
+      return;
+    }
     event.stopPropagation();
     const rect = this.el.getBoundingClientRect();
     const delta = event.clientX - rect.left;
@@ -76,12 +84,18 @@ class Slider {
     this.updateValue(value, true);
   }
   onTouchStart = (event) => {
+    if (this.disabled) {
+      return;
+    }
     this.touchMixin.touchStart(event);
     this.currentValue = this.value;
     this.startValue = this.format(this.value);
     this.dragStatus = 'start';
   }
   onTouchMove = (event) => {
+    if (this.disabled) {
+      return;
+    }
     const dragStart = this.options.dragStart;
     if (this.dragStatus === 'start' && dragStart) {
       if (isFn(dragStart)) {
@@ -104,6 +118,9 @@ class Slider {
     this.updateValue(this.currentValue);
   }
   onTouchEnd = () => {
+    if (this.disabled) {
+      return;
+    }
     if (this.dragStatus === 'draging') {
       this.updateValue(this.currentValue, true);
       const dragEnd = this.options.dragEnd;
